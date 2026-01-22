@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  profile   Profile?
+  skillPlans SkillPlan[]
+}
+
+model Profile {
+  id                   String   @id @default(cuid())
+  userId               String   @unique
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  interests            String[]
+  goals                String?
+  difficultyPreference String   @default("Beginner") // Beginner, Intermediate, Expert
+  dailyTimeMinutes     Int      @default(30)
+  theme                String   @default("light") // light, dark
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
+model SkillPlan {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skillName  String
+  duration   Int      // in days
+  difficulty String   // Beginner, Intermediate, Expert
+  startDate  DateTime @default(now())
+  status     String   @default("active") // active, completed, paused
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  
+  modules    Module[]
+}
+
+model Module {
+  id          String   @id @default(cuid())
+  skillPlanId String
+  skillPlan   SkillPlan @relation(fields: [skillPlanId], references: [id], onDelete: Cascade)
+  title       String
+  week        Int
+  order       Int
+  objective   String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  tasks       Task[]
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  moduleId    String
+  module      Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  title       String
+  contentType String   // reading, video, project, exercise
+  contentLink String?
+  description String?
+  completed   Boolean  @default(false)
+  order       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

@@ -1,0 +1,196 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+}
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    transition: color var(--transition-fast);
+}
+
+.backButton:hover {
+    color: var(--color-primary);
+}
+
+.header {
+    background: var(--bg-card);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-2xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.skillBadge {
+    display: inline-block;
+    background: var(--gradient-primary);
+    color: var(--text-inverse);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+.title {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+}
+
+.objective {
+    color: var(--text-secondary);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+}
+
+.progressSection {
+    margin-top: var(--space-lg);
+}
+
+.progressBar {
+    height: 8px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: var(--space-sm);
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--gradient-success);
+    transition: width var(--transition-slow);
+    border-radius: var(--radius-full);
+}
+
+.progressText {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.taskCard {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+    transition: all var(--transition-fast);
+}
+
+.taskCard:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.taskCard.completed {
+    opacity: 0.7;
+    background: var(--bg-secondary);
+}
+
+.taskContent {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+    flex: 1;
+}
+
+.taskIcon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.taskInfo {
+    flex: 1;
+}
+
+.taskTitle {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+}
+
+.taskCard.completed .taskTitle {
+    text-decoration: line-through;
+}
+
+.taskDescription {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.taskType {
+    display: inline-block;
+    font-size: var(--text-xs);
+    color: var(--color-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.checkbox {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.checkbox:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+.checkbox.checked {
+    background: var(--gradient-success);
+    border-color: var(--color-success);
+    color: var(--text-inverse);
+}
+
+.completionCard {
+    background: var(--gradient-success);
+    color: var(--text-inverse);
+    padding: var(--space-3xl);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    margin-top: var(--space-2xl);
+    animation: fadeIn var(--transition-slow) ease-out;
+}
+
+.completionIcon {
+    font-size: 4rem;
+    margin-bottom: var(--space-md);
+}
+
+.completionTitle {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+}
+
+.completionText {
+    margin-bottom: var(--space-lg);
+    opacity: 0.95;
+}
